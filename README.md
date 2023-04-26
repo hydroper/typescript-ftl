@@ -1,12 +1,14 @@
 # TypeScript Fluent Translation List
 
-Rapidly support Fluent Translation Lists in your web application. This uses the NPM package `@fluent/bundle` under the hood.
+Rapidly support Fluent Translation Lists in your web application. This uses the NPM package [`@fluent/bundle`](https://www.npmjs.com/package/@fluent/bundle).
+
+Both client-side and server-side applications are supported.
 
 ## Getting Started
 
 Example TypeScript:
 
-```
+```ts
 import { FTL } from 'com.hydroper.ftl';
 
 const ftl = new FTL({
@@ -31,7 +33,7 @@ async function main() {
         return;
     }
 
-    console.log(ftl.getMessage('hello-to', { to: 'Jessica' }));
+    console.log(ftl.getMessage('hello', { to: 'Jessica' }));
 }
 
 main();
@@ -40,10 +42,9 @@ main();
 Example FTL at `res/lang/en/_.ftl`:
 
 ```
-hello-to = Hello, { $to }!
-
+hello = Hello, { $to }!
 ```
 
 ## Server Usage
 
-Usually, for server applications, set the `cleanUnusedAssets` option to `false` and clone the `FTL` object when necessary by invoking `ftl.clone();`.
+Usually, for server applications, set the `cleanUnusedAssets` option to `false` and clone the `FTL` object when necessary by invoking `ftl.clone();` to change the current locale.
