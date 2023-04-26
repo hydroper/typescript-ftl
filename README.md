@@ -19,7 +19,9 @@ import { FTL } from 'com.hydroper.ftl';
 
 const ftl = new FTL({
     supportedLocales: ['en'],
-    fallbacks: {},
+    fallbacks: {
+        // 'pt-BR': ['en'],
+    },
     defaultLocale: 'en',
 
     assetSource: 'res/lang',
@@ -54,6 +56,8 @@ hello = Hello, { $to }!
 ## Server Usage
 
 Usually, for server applications, set the `cleanUnusedAssets` option to `false` and clone the `FTL` object when necessary by invoking `ftl.clone();` to change the current locale.
+
+The `ftl.clone();` method clones the `FTL` object, but still re-uses resources from the original object, avoiding resource duplication.
 
 ## API
 
