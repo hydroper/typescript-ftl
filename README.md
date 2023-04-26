@@ -6,6 +6,12 @@ Both client-side and server-side applications are supported.
 
 ## Getting Started
 
+Install dependency:
+
+```
+npm install com.hydroper.ftl
+```
+
 Example TypeScript:
 
 ```ts
