@@ -48,3 +48,7 @@ hello = Hello, { $to }!
 ## Server Usage
 
 Usually, for server applications, set the `cleanUnusedAssets` option to `false` and clone the `FTL` object when necessary by invoking `ftl.clone();` to change the current locale.
+
+## API
+
+Currently no TypeDocs generated, but you can consult the API at: [index.d.ts](src/index.d.ts).
