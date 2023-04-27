@@ -1,6 +1,6 @@
 {
   "name": "com.hydroper.ftl",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Work with Fluent Translation Lists in TypeScript",
   "main": "src/index.js",
   "scripts": {
