@@ -69,7 +69,7 @@ export declare class FTL {
 
 export type FTLOptions = {
     supportedLocales: string[];
-    fallbacks: Record<string, string[]>?;
+    fallbacks?: Record<string, string[]>;
     defaultLocale: string;
     assetSource: string;
     assetFiles: string[];

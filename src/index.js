@@ -129,6 +129,9 @@ class FTL {
 
     load(newLocale = null) {
         newLocale ||= this._defaultLocale;
+        if (!(newLocale instanceof Intl.Locale)) {
+            throw new Error(`Locale argument must be an Intl.Locale object`);
+        }
         if (!this.supportsLocale(newLocale)) {
             throw new Error(`Unsupported locale: ${newLocale.toString()}`);
         }
