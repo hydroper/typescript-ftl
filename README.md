@@ -17,34 +17,43 @@ Example TypeScript:
 ```ts
 import { FTL } from 'com.hydroper.ftl';
 
-const ftl = new FTL({
-    supportedLocales: ['en'],
-    fallbacks: {
-        // 'pt-BR': ['en'],
-    },
-    defaultLocale: 'en',
+class Main {
+    ftl: undefined | FTL = undefined;
 
-    assetSource: 'res/lang',
-    assetFiles: [
-        '_', // res/lang/LANG/_.ftl
-    ],
-
-    cleanUnusedAssets: true,
-
-    // specify either 'http' or 'fileSystem' as load method
-    loadMethod: 'fileSystem',
-});
-
-async function main() {
-    if (!(await ftl.load())) {
-        // failed to load
-        return;
+    constructor() {
+        this.ftl = undefined;
+        this.initialize();
     }
 
-    console.log(ftl.getMessage('hello', { to: 'Jessica' }));
+    async initialize() {
+        this.ftl = new FTL({
+            supportedLocales: ['en'],
+            fallbacks: {
+                // 'pt-BR': ['en'],
+            },
+            defaultLocale: 'en',
+
+            assetSource: 'res/lang',
+            assetFiles: [
+                '_', // res/lang/LANG/_.ftl
+            ],
+
+            cleanUnusedAssets: true,
+
+            // specify either 'http' or 'fileSystem' as load method
+            loadMethod: 'fileSystem',
+        });
+
+        if (!(await this.ftl!.load())) {
+            // failed to load
+            return;
+        }
+
+        console.log(this.ftl!.getMessage('hello', { to: 'Jessica' }));
+    }
 }
 
-main();
+new Main();
 ```
 
 Example FTL at `res/lang/en/_.ftl`:
