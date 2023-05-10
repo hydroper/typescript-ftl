@@ -18,14 +18,9 @@ Example TypeScript:
 import { FTL } from 'com.hydroper.ftl';
 
 class Main {
-    ftl: undefined | FTL = undefined;
+    ftl: FTL;
 
     constructor() {
-        this.ftl = undefined;
-        this.initialize();
-    }
-
-    async initialize() {
         this.ftl = new FTL({
             supportedLocales: ['en'],
             fallbacks: {
@@ -43,13 +38,16 @@ class Main {
             // specify either 'http' or 'fileSystem' as load method
             loadMethod: 'fileSystem',
         });
+        this.initialize();
+    }
 
-        if (!(await this.ftl!.load())) {
+    async initialize() {
+        if (!(await this.ftl.load())) {
             // failed to load
             return;
         }
 
-        console.log(this.ftl!.getMessage('hello', { to: 'Jessica' }));
+        console.log(this.ftl.getMessage('hello', { to: 'Jessica' }));
     }
 }
 
